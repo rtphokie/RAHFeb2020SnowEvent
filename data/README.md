@@ -1,18 +1,18 @@
 Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 - 2020/02/20
 
 ## Actual (NWS)
-* Wed 6:27pm [NWS](https://twitter.com/NWSRaleigh/status/1230639187298111488 <br>)
+* Wed 6:27pm [NWS](https://twitter.com/NWSRaleigh/status/1230639187298111488) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0220actual.png)
 ## WTVD
-* Tue 4:20 pm [BrittanyABC11](https://twitter.com/BrittanyABC11/status/1229878285640896512 <br>)
+* Tue 4:20 pm [BrittanyABC11](https://twitter.com/BrittanyABC11/status/1229878285640896512) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218BrittanyABC11.jpeg)
-* Tue 5:02 pm [HohmannABC11](https://twitter.com/HohmannABC11/status/1229888872215203840 <br>)
+* Tue 5:02 pm [HohmannABC11](https://twitter.com/HohmannABC11/status/1229888872215203840) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/02181702HohmannABC11.jpeg)
-* Wed 11:56 am [BigweatherABC11](https://twitter.com/BigweatherABC11/status/1230174414966337538 <br>)
+* Wed 11:56 am [BigweatherABC11](https://twitter.com/BigweatherABC11/status/1230174414966337538) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219BigweatherABC11.jpeg)
-* Wed 5:02 pm [HohmannABC11](https://twitter.com/HohmannABC11/status/1230251233530781696 <br>)
+* Wed 5:02 pm [HohmannABC11](https://twitter.com/HohmannABC11/status/1230251233530781696) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219HohmannABC11.jpeg)
-* Wed 5:10 pm [RobJohnsonABC11](https://twitter.com/RobJohnsonABC11/status/1230253257261568000 <br>)
+* Wed 5:10 pm [RobJohnsonABC11](https://twitter.com/RobJohnsonABC11/status/1230253257261568000) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219RobJohnsonABC11.jpeg)
 
 ##WRAL
