@@ -38,7 +38,7 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
 ## Spectrum
 * Wed 10:43 am [LeeRingerWx](https://twitter.com/LeeRingerWx/status/1230155987232993280) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219LeeRingerWx.jpeg)
-* Wed 3:41 pm [GStephenson_Wx](https://twitter.com/GStephenson_Wx/status/1230230842947055617 <br>)
+* Wed 3:41 pm [GStephenson_Wx](https://twitter.com/GStephenson_Wx/status/1230230842947055617) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219GStephenson_Wx.jpeg)
 
 ## NWS
