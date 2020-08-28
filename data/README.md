@@ -1,6 +1,8 @@
 WNCN
 * 02181620 https://twitter.com/BrittanyABC11/status/1229878285640896512
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218BrittanyABC11%20.jpeg "Logo Title Text 1")
 * 02181702 https://twitter.com/HohmannABC11/status/1229888872215203840
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218HohmannABC11.jpeg "Logo Title Text 1")
 * 02182327 https://twitter.com/HohmannABC11/status/1229985718346403840
 * 02191156 https://twitter.com/BigweatherABC11/status/1230174414966337538
 * 02191702 https://twitter.com/HohmannABC11/status/1230251233530781696
