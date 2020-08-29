@@ -42,7 +42,7 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219GStephenson_Wx.jpeg)
 
 ## NWS
-* Tue 9:34 pm [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1229957386875457536) <br>
+* Tue 9:34 pm [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1229957386875457536) <br> 
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218NWSRAH.jpeg)
 * Wed 6:22 am [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230090338003369986)  <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSRAH.jpeg)
@@ -50,6 +50,7 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSAKQ.jpeg)
 * Thu 3:36 pm [NWSGSP](https://twitter.com/NWSGSP/status/1230246399780040704) <br> (Greenville-Spartanburg, SC, SC)
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSGSP.jpeg)
+  
+## Actual Snowfall
 * Thu 3:49 am [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230462986310934528) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0220actual.png)
-## Actual Snowfall

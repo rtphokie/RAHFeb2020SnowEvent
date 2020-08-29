@@ -8,11 +8,8 @@
 | WTVD | ![](WTVD.png)|
 | WRAL | ![](WRAL.png)|
 | WNCN | ![](WNCN.png)|
-| Spectrum | ![](Spectrum.png)|
-Note: Scales corespond to amounts noted as "most likely" in final forecast before snowfall begam, ignoring "boom" or "bust" forecasted amounts.
-
-
-# Reference
-## hex color values
-* NWS: f0eff0,c7dee9,83bbdc
-
+| Spectrum | ![](Spectrum.png)| 
+Notes: 
+* Scales correspond to amounts noted as "most likely" in final forecast before snowfall began, ignoring "boom" or "bust" forecasted amounts.
+* diagonal lines indicate overlapping ranges (e.g. 1"-3", 2"-4")
+* diagonal line on upper range indicates a forecast of snowfall that could top that upper bound (e.g. 3"+)
