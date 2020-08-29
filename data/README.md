@@ -15,7 +15,7 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
 * Wed 5:10 pm [RobJohnsonABC11](https://twitter.com/RobJohnsonABC11/status/1230253257261568000) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219RobJohnsonABC11.jpeg)
 
-##WRAL
+## WRAL
 * Tue 08:43 am [katcampbellwx](https://twitter.com/katcampbellwx/status/1229944495111843841) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218katcampbellwx.jpeg)
 * Wed 06:08 am [psheerwood](https://twitter.com/psheerwood/status/1230086875395821568) <br>
@@ -43,12 +43,12 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
 
 ## NWS
 * Tue 9:34 pm [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1229957386875457536) <br>
-  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218NWSRaleigh.jpeg)
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218NWSRAH.jpeg)
 * Wed 6:22 am [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230090338003369986)  <br>
-  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSRaleigh.jpeg)
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSRAH.jpeg)
 * Thu 3:36 pm [NWSWakefieldVA](https://twitter.com/NWSWakefieldVA/status/1230229760309153797) <br>
-  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSWakefieldVA.png)
-* Thu 3:36 pm [NWSGSP](https://twitter.com/NWSGSP/status/1230246399780040704) <br>
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSAKQ.jpeg)
+* Thu 3:36 pm [NWSGSP](https://twitter.com/NWSGSP/status/1230246399780040704) <br> (Greenville-Spartanburg, SC, SC)
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSGSP.jpeg)
 * Thu 3:49 am [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230462986310934528) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0220actual.png)
