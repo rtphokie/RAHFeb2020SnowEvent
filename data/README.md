@@ -46,9 +46,9 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218NWSRAH.jpeg)
 * Wed 6:22 am [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230090338003369986)  <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219NWSRAH.jpeg)
-* Wed 5:03 pm [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230614030085001217) <br>
-  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/02191705NWSRaleigh.jpeg)
-* Wed 6:43 pm [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230639187298111488) <br>
+* Thu 5:03 pm [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230614030085001217) <br>
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/02201703NWSRaleigh.png)
+* Thu 6:43 pm [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230639187298111488) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/02201843NWSRaleigh.png)
 
 * Thu 3:36 pm [NWSWakefieldVA](https://twitter.com/NWSWakefieldVA/status/1230229760309153797) <br>

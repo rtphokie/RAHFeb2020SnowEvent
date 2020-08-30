@@ -1,5 +1,7 @@
 import unittest
+from shapely import geometry
 import simple_cache
+
 from pprint import pprint
 import struct
 import matplotlib.colors as col
@@ -7,6 +9,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap
 import matplotlib.colors as colors
+import matplotlib.patches as mpatches
+import matplotlib.cm as cm
 # try:
 #   from mpl_toolkits.basemap import Basemap
 # except:
@@ -54,85 +58,82 @@ def NWScolormap(hexmap):
     norm = colors.BoundaryNorm(boundaries, cmap.N, clip=True)
     pprint(NWSLegend)
 
-    def load_shapefile_from_git(m, dir, filename, drawbounds=False,
-                                urlbase='https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master'):
-        for ext in ['dbf', 'shp', 'shx']:
-            if not os.path.exists(f"{dir}/{filename}.{ext}"):
-                if not os.path.exists(dir):
-                    logging.info(f"directory {dir} created")
-                    os.makedirs(dir)
-                url = f'{urlbase}/{dir}/{filename}.{ext}'
-                r = requests.get(url)
-                logging.info(f'shapefile fetched from GIT {url}')
-                with open(f"{dir}/{filename}.{ext}", 'wb') as f:
-                    f.write(r.content)
-                # else:
-                logging.debug(f'using existing {ext} shapefile {filename}')
-        m.readshapefile(f'{dir}/{filename}', filename, ax=ax, drawbounds=drawbounds)
-        logging.info(f"{dir}/{filename} shapefile loaded")
+def load_shapefile_from_git(m, dir, filename, drawbounds=False,
+                            urlbase='https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master'):
+    for ext in ['dbf', 'shp', 'shx']:
+        if not os.path.exists(f"{dir}/{filename}.{ext}"):
+            if not os.path.exists(dir):
+                logging.info(f"directory {dir} created")
+                os.makedirs(dir)
+            url = f'{urlbase}/{dir}/{filename}.{ext}'
+            r = requests.get(url)
+            logging.info(f'shapefile fetched from GIT {url}')
+            with open(f"{dir}/{filename}.{ext}", 'wb') as f:
+                f.write(r.content)
+            # else:
+            logging.debug(f'using existing {ext} shapefile {filename}')
+    m.readshapefile(f'{dir}/{filename}', filename, ax=ax, drawbounds=drawbounds)
+    logging.info(f"{dir}/{filename} shapefile loaded")
 
-    def draw_map_background(m, ax):
-        ax.set_facecolor('#729FCF')
-        m.fillcontinents(color='#FAFAFA', ax=ax, zorder=0)
-        m.drawcounties(ax=ax, color="darkgrey")
-        m.drawstates(ax=ax, color='darkgrey')
-        m.drawcountries(ax=ax)
-        m.drawcoastlines(ax=ax)
+def draw_map_background(m, ax):
+    ax.set_facecolor('#729FCF')
+    m.fillcontinents(color='#FAFAFA', ax=ax, zorder=0)
+    m.drawcounties(ax=ax, color="darkgrey")
+    m.drawstates(ax=ax, color='darkgrey')
+    m.drawcountries(ax=ax)
+    m.drawcoastlines(ax=ax)
 
-    def draw_shapes(m, ax, dmas=['RALEIGH-DURHAM'], wfos=['RAH']):
-        # m.readshapefile('https://github.com/rtphokie/RAHFeb2020SnowEvent/tree/master/dma_2008/DMAs', 'DMAs', ax=ax, drawbounds=False)
-        load_shapefile_from_git(m, 'dma_2008', 'DMAs')
-        load_shapefile_from_git(m, 'w_03mr20', 'w_03mr20')
-        load_shapefile_from_git(m, 'NWS_actual', 'NWS_Actual_polygon', drawbounds=False)
+def draw_shapes(m, ax, dmas=['RALEIGH-DURHAM'], wfos=['RAH']):
+    # m.readshapefile('https://github.com/rtphokie/RAHFeb2020SnowEvent/tree/master/dma_2008/DMAs', 'DMAs', ax=ax, drawbounds=False)
+    load_shapefile_from_git(m, 'data/shapefiles/dma_2008', 'DMAs')
+    load_shapefile_from_git(m, 'data/shapefiles/w_03mr20', 'data/shapefiles/w_03mr20')
+    load_shapefile_from_git(m, 'NWS_actual', 'NWS_Actual_polygon', drawbounds=False)
 
-        # m.readshapefile('mygeodata/NWS_Actual-polygon', 'NWS_Actual_polygon', ax=ax, drawbounds=True)
-        # https://twitter.com/NWSRaleigh/status/1232344049568354307
+    # m.readshapefile('mygeodata/NWS_Actual-polygon', 'NWS_Actual_polygon', ax=ax, drawbounds=True)
+    # https://twitter.com/NWSRaleigh/status/1232344049568354307
 
-        patches = {'0-0.5': [],
-                   '2-3': [],
-                   '3-4': [],
-                   '4-5': [],
-                   }
+    patches = {'0-0.5': [],
+               '2-3': [],
+               '3-4': [],
+               '4-5': [],
+               }
 
-        for info, shape in zip(m.NWS_Actual_polygon_info, m.NWS_Actual_polygon):
-            if info['Name'] in patches.keys():
-                patches[info['Name']].append(Polygon(np.array(shape), True))
-        pprint(patches)
-        ax.add_collection(PatchCollection(patches['2-3'], edgecolor='k', linewidths=1., zorder=2))
-        ax.add_collection(PatchCollection(patches['4-5'], edgecolor='k', alpha=0.5, linewidths=1., zorder=2))
-        return
-        wfos = []
-        for info, shape in zip(m.w_03mr20_info, m.w_03mr20):
-            # print(info)
-            if info['WFO'] in wfos:
-                # highlight county warning areas of interest
-                # x, y = zip(*shape)
-                wfos.append(Polygon(np.array(shape), True))
-                # m.plot(x, y, marker=None, color='b', facecolor='b', alpha=0.5)
-        ax.add_collection(wfos, edgecolor='k', linewidths=1., zorder=2)
+    for info, shape in zip(m.NWS_Actual_polygon_info, m.NWS_Actual_polygon):
+        if info['Name'] in patches.keys():
+            patches[info['Name']].append(Polygon(np.array(shape), True))
+    pprint(patches)
+    ax.add_collection(PatchCollection(patches['2-3'], edgecolor='k', linewidths=1., zorder=2))
+    ax.add_collection(PatchCollection(patches['4-5'], edgecolor='k', alpha=0.5, linewidths=1., zorder=2))
+    return
+    wfos = []
+    for info, shape in zip(m.w_03mr20_info, m.w_03mr20):
+        # print(info)
+        if info['WFO'] in wfos:
+            # highlight county warning areas of interest
+            # x, y = zip(*shape)
+            wfos.append(Polygon(np.array(shape), True))
+            # m.plot(x, y, marker=None, color='b', facecolor='b', alpha=0.5)
+    ax.add_collection(wfos, edgecolor='k', linewidths=1., zorder=2)
 
-        for info, shape in zip(m.DMAs_info, m.DMAs):
-            if info['NAME'] in dmas:
-                # highlight DMAs of interest
-                x, y = zip(*shape)
-                m.plot(x, y, marker=None, color='k')
+    for info, shape in zip(m.DMAs_info, m.DMAs):
+        if info['NAME'] in dmas:
+            # highlight DMAs of interest
+            x, y = zip(*shape)
+            m.plot(x, y, marker=None, color='k')
 
-
-def drawmap(res='h'):
+def drawmap(res='h', DMAs=['RALEIGH-DURHAM'], WFOs=['RAH']):
     '''
     :param res:  [c]rude (faster), [l]ow, [h]ight(slower) [f]ull (really slow)
     :return:
     '''
-    print ('drawing map')
     ax, fig, m = _drawmap(res)
-    print ('drawing map')
-    draw_shapes(m, ax)
+    draw_shapes(m, ax, DMAs=DMAs, WFOs=WFOs)
     fig.text(0.5, 0.92, 'Feb 20, 2020 Snow Event', horizontalalignment='center')
 
     fig.savefig('foo.png')
+    fig.show()
 
-
-@simple_cache.cache_it(filename="basemap.cache", ttl=120000)
+# @simple_cache.cache_it(filename="basemap.cache", ttl=120000)
 def _drawmap(res, fillcontinents=True, counties="darkgrey", drawstates=True, drawcountries=True, drawcoastlines=True):
     '''
     This is expensive, caching results based on resolution
@@ -159,8 +160,6 @@ def _drawmap(res, fillcontinents=True, counties="darkgrey", drawstates=True, dra
 
     return ax, fig, m
 
-
-
 def load_shapefile_from_git(m, ax, dir, filename, drawbounds=False, urlbase='https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master'):
     for ext in ['dbf', 'shp', 'shx']:
         if not os.path.exists(f"{dir}/{filename}.{ext}"):
@@ -178,42 +177,53 @@ def load_shapefile_from_git(m, ax, dir, filename, drawbounds=False, urlbase='htt
     logging.info(f"{dir}/{filename} shapefile loaded")
 
 
-def draw_shapes(m, ax, dmas=['RALEIGH-DURHAM'], wfos=['RAH']):
+def draw_shapes(m, ax, DMAs=None, WFOs=None):
     # m.readshapefile('https://github.com/rtphokie/RAHFeb2020SnowEvent/tree/master/dma_2008/DMAs', 'DMAs', ax=ax, drawbounds=False)
-    load_shapefile_from_git(m, ax, 'dma_2008', 'DMAs')
-    load_shapefile_from_git(m, ax, 'w_03mr20', 'w_03mr20')
-    load_shapefile_from_git(m, ax, 'NWS_actual', 'NWS_Actual_polygon', drawbounds=False)
 
-    patches = {'0-0.5': [],
-               '2-3': [],
-               '3-4': [],
-               '4-5': [],
-               }
+    # https://matplotlib.org/3.3.1/tutorials/colors/colormaps.html
+    WFOcmap = cm.get_cmap('rainbow')
+    DMAmap =cm.get_cmap('coolwarm')
 
-    for info, shape in zip(m.NWS_Actual_polygon_info, m.NWS_Actual_polygon):
-        if info['Name'] in patches.keys():
-            patches[info['Name']].append(Polygon(np.array(shape), True))
-    pprint(patches)
-    ax.add_collection(PatchCollection(patches['2-3'], edgecolor='k', linewidths=1., zorder=2))
-    ax.add_collection(PatchCollection(patches['4-5'], edgecolor='k', alpha=0.5, linewidths=1., zorder=2))
+    handles = {}
+    points = {}
 
-    collection_wfos = []
+    # WFO shapefile from NOAA
+    load_shapefile_from_git(m, ax, 'data/shapefiles/w_03mr20', 'w_03mr20')
     for info, shape in zip(m.w_03mr20_info, m.w_03mr20):
-        if info['WFO'] in wfos: # highlight county warning areas of interest
-            collection_wfos.append(Polygon(np.array(shape), True))
+        if info['WFO'] in WFOs: # highlight county warning areas of interest
+            if info['WFO'] not in points.keys():
+                points[info['WFO']] = []
+            # gather all points related to this WFO (normalized to the portions shown on this map), for labeling at the centroid
+            for a_tuple in shape:
+                points[info['WFO']].append(geometry.Point(min(max(a_tuple[0], m.xmin), m.xmax),min(max(a_tuple[1], m.ymin), m.ymax)))
+            collection_wfos = [Polygon(np.array(shape), True)]
+            rgba = WFOcmap( (WFOs.index(info['WFO']) + 1)/len(WFOs))  # pick from colormap based on position in list
+            ax.add_collection(PatchCollection(collection_wfos, edgecolor='k', facecolors=rgba, alpha=0.4, linewidths=0.5))
+            handles[info['WFO']]=mpatches.Patch(color=rgba, alpha=0.4, label=f"WFO: {info['CityState']} ({info['WFO']})")
 
-    collection_dmas = []
+    # Label WFOs at the centroid
+    for WFO in points.keys():
+        print (f"{WFO} {len(points[WFO])}")
+        poly = geometry.Polygon([[p.x, p.y] for p in points[WFO]])
+        centroid = poly.centroid
+        print(centroid)
+        ax.text(centroid.x, centroid.y,
+                WFO, fontsize=12, fontweight='bold', ha='left', va='center', color='k')
+
+    # DMA shapefile from Harvard dataseet
+    load_shapefile_from_git(m, ax, 'data/shapefiles/dma_2008', 'DMAs')
     for info, shape in zip(m.DMAs_info, m.DMAs):
-        if info['NAME'] in dmas: # highlight county warning areas of interest
-            collection_dmas.append(Polygon(np.array(shape), True))
+        if info['NAME'] in DMAs: # highlight county warning areas of interest
+            collection_wfos = [Polygon(np.array(shape), True)]
+            ax.add_collection(PatchCollection(collection_wfos, facecolor= 'none', edgecolor='k', linewidths=4.0))
 
-    ax.add_collection(PatchCollection(collection_wfos, edgecolor='k', facecolors='gray', alpha=0.2, linewidths=1., zorder=2))
-    ax.add_collection(PatchCollection(collection_dmas, edgecolor='k', facecolors='gray', alpha=0.2, linewidths=1., zorder=3))
+
+    # plt.legend(handles=handles.values(), loc=3)
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
-        NWScolormap(NWSLegend)
-        drawmap(res='i')
+        # NWScolormap(NWSLegend)
+        drawmap(res='l', DMAs=['RALEIGH-DURHAM'], WFOs=['GSP', 'RAH', 'AKQ', 'MHX', 'RNK', 'ILM'])
 
 
 if __name__ == '__main__':

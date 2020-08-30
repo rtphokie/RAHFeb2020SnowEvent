@@ -4,3 +4,5 @@
 venv/
 /basemap.cache
 *.git
+old/
+/foo.png
