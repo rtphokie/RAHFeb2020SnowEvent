@@ -1,10 +1,4 @@
-mkdir shapefiles/WRAL
-mkdir shapefiles/WTVD
-mkdir shapefiles/WNCN
-mkdir shapefiles/Spectrum
-mkdir "shapefiles/NWS Final"
-ogr2ogr -f "ESRI Shapefile" "shapefiles/Spectrum/Spectrum.shp" "KML/Spectrum.kml" -dim 2 
-ogr2ogr -f "ESRI Shapefile" "shapefiles/WNCN/WNCN.shp" "KML/WNCN.kml" -dim 2 
-ogr2ogr -f "ESRI Shapefile" "shapefiles/WRAL/WRAL.shp" "KML/WRAL.kml" -dim 2 
-ogr2ogr -f "ESRI Shapefile" "shapefiles/WTVD/WTVD.shp" "KML/WTVD.kml" -dim 2 
-ogr2ogr -f "ESRI Shapefile" "shapefiles/NWS Final/NWS Final.shp" "KML/NWS Final.kml" -dim 2 
+mkdir shapefiles/20200220NCSnowForecasts
+mkdir shapefiles/20200220NCSnowResults
+ogr2ogr -f "ESRI Shapefile" "shapefiles/20200220NCSnowForecasts/20200220NCSnowForecasts.shp" "KML/20200220NCSnowForecasts.kml" -dim 2
+ogr2ogr -f "ESRI Shapefile" "shapefiles/20200220NCSnowResults/20200220NCSnowResults.shp" "KML/20200220NCSnowResults.kml" -dim 2

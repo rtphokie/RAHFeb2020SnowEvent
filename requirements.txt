@@ -1,2 +1,6 @@
 matplotlib
 shapely
+pandas
+# fiona
+GDAL
+geopandas
