@@ -67,13 +67,14 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
 ## Final totals
 * Thu 3:49 am [NWSRaleigh](https://twitter.com/NWSRaleigh/status/1230462986310934528) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSrahfinal.jpeg)
-* Thu 2:01 pm [NWSMoreheadCity](https://twitter.com/NWSMoreheadCity/status/1230589381078994944) <br>
-  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSmhxfinal.png)
-* Thu 2:01 pm [NWSWakefieldVA](https://twitter.com/NWSWakefieldVA/status/1230527241001435136) <br>
-  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSakqfinal.png)
+* Thu 2:49 pm [NWSMoreheadCity](https://twitter.com/NWSMoreheadCity/status/1230589381078994944) <br>
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSmhxfinal.jpeg)
+* Thu 10:40 am [NWSWakefieldVA](https://twitter.com/NWSWakefieldVA/status/1230527241001435136) <br>
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSakqfinal.jpeg)
 * Thu 2:01 pm [NWSBlacksburg](https://twitter.com/NWSBlacksburg/status/1231111217176952832) <br>
-  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSakqfinal.png)
-  
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSrnkfinal.png)
+* Thu 2:01 pm [NWSGSP](https://twitter.com/NWSGSP/status/1230544941698273280) <br>
+  ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/NWSgspfinal.jpeg) 
   
 ## Forecast Screenshots 
 ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/collage1.jpg)
