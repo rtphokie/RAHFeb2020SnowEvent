@@ -1,7 +1,7 @@
 Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 - 2020/02/20
 
-## Actual (NWS)
-* Wed 6:27pm [NWS](https://twitter.com/NWSRaleigh/status/1230639187298111488) <br>
+# Forecasts
+* Wed 6:27pm [NWS Raleigh](https://twitter.com/NWSRaleigh/status/1230639187298111488) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0220actual.png)
  
 ## Forecast A
@@ -20,7 +20,7 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
 * Wed 5:25 pm [WeatherWes](https://twitter.com/WeatherWes/status/1230257032684605440) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219WeatherWes_2.jpeg)
 
-## Frecast C
+## Forecast C
 * Tue 08:43 am [katcampbellwx](https://twitter.com/katcampbellwx/status/1229944495111843841) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218katcampbellwx.jpeg)
 * Wed 06:08 am [psheerwood](https://twitter.com/psheerwood/status/1230086875395821568) <br>
@@ -31,7 +31,7 @@ Raleigh area Meteorologist tweets including snowfall prediction maps 2020/02/18 
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0219mazewx66.jpeg)
  
  
-## Frecast D
+## Forecast D
 * Tue 4:20 pm [BrittanyABC11](https://twitter.com/BrittanyABC11/status/1229878285640896512) <br>
   ![](https://raw.githubusercontent.com/rtphokie/RAHFeb2020SnowEvent/master/data/images/0218BrittanyABC11.jpeg)
 * Tue 5:02 pm [HohmannABC11](https://twitter.com/HohmannABC11/status/1229888872215203840) <br>
