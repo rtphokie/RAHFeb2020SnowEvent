@@ -492,7 +492,6 @@
 	</Style>
 	<Folder>
 		<name>20200220NCSnowForecasts</name>
-		<visibility>0</visibility>
 		<open>1</open>
 		<Folder>
 			<name>forecastA</name>
@@ -530,10 +529,8 @@
 		</Folder>
 		<Folder>
 			<name>forecastB</name>
-			<visibility>0</visibility>
 			<Placemark>
 				<name>1-3</name>
-				<visibility>0</visibility>
 				<styleUrl>#msn_ylw-pushpin18</styleUrl>
 				<Polygon>
 					<tessellate>1</tessellate>
@@ -548,7 +545,6 @@
 			</Placemark>
 			<Placemark>
 				<name>1</name>
-				<visibility>0</visibility>
 				<styleUrl>#msn_ylw-pushpin4</styleUrl>
 				<Polygon>
 					<tessellate>1</tessellate>
@@ -563,7 +559,6 @@
 			</Placemark>
 			<Placemark>
 				<name>.5</name>
-				<visibility>0</visibility>
 				<styleUrl>#msn_ylw-pushpin1</styleUrl>
 				<Polygon>
 					<tessellate>1</tessellate>
@@ -578,7 +573,6 @@
 			</Placemark>
 			<Placemark>
 				<name>.5</name>
-				<visibility>0</visibility>
 				<styleUrl>#msn_ylw-pushpin1</styleUrl>
 				<Polygon>
 					<tessellate>1</tessellate>
@@ -688,11 +682,9 @@
 		</Folder>
 		<Folder>
 			<name>forecastD</name>
-			<visibility>0</visibility>
 			<open>1</open>
 			<Placemark>
 				<name>2-4.1</name>
-				<visibility>0</visibility>
 				<styleUrl>#msn_ylw-pushpin</styleUrl>
 				<Polygon>
 					<tessellate>1</tessellate>

@@ -47,6 +47,17 @@ NWSLegend=[
            {'lower': 5.1, 'upper': 6.0, 'hexstring': '#f401ef'},
            ]
 
+NWSLegend={
+'5.1-6': '#f401ef',
+'4.1-5': '#b400f7',
+'3.1-4': '#6b02f2',
+'2.1-3': '#0002f1',
+'1.1-2': '#335bf9',
+'0.6-1': '#32a6fd',
+'0-0.5': '#06f4f6',
+}
+
+
 # def hex2rgb(s):
 #     return (int(s[0:2], 16), int(s[2:4], 16), int(s[4:7], 16))
 #
@@ -76,13 +87,13 @@ def load_shapefile_from_git(m, dir, filename, drawbounds=False,
     m.readshapefile(f'{dir}/{filename}', filename, ax=ax, drawbounds=drawbounds)
     logging.info(f"{dir}/{filename} shapefile loaded")
 
-def draw_map_background(m, ax):
-    ax.set_facecolor('#729FCF')
-    m.fillcontinents(color='#FAFAFA', ax=ax, zorder=0)
-    m.drawcounties(ax=ax, color="darkgrey")
-    m.drawstates(ax=ax, color='darkgrey')
-    m.drawcountries(ax=ax)
-    m.drawcoastlines(ax=ax)
+# def draw_map_background(m, ax):
+#     ax.set_facecolor('#729FCF')
+#     m.fillcontinents(color='#FAFAFA', ax=ax, zorder=0)
+#     m.drawcounties(ax=ax, color="darkgrey")
+#     m.drawstates(ax=ax, color='darkgrey')
+#     m.drawcountries(ax=ax)
+#     m.drawcoastlines(ax=ax)
 
 # def draw_shapes(m, ax, dmas=['RALEIGH-DURHAM'], wfos=['RAH']):
 #     # m.readshapefile('https://github.com/rtphokie/RAHFeb2020SnowEvent/tree/master/dma_2008/DMAs', 'DMAs', ax=ax, drawbounds=False)
@@ -128,7 +139,6 @@ def draw_wfo_dma_map(res='h', DMAs=['RALEIGH-DURHAM'], WFOs=['RAH']):
     ax, fig, m = _drawmap(res)
     draw_areas(m, ax, DMAs=DMAs, WFOs=WFOs)
     fig.text(0.5, 0.92, 'Feb 20, 2020 Snow Event', horizontalalignment='center')
-
     fig.savefig('foo.png')
     fig.show()
 
@@ -181,10 +191,7 @@ def draw_shapes(m, ax):
 
 def draw_areas(m, ax, DMAs=None, WFOs=None):
     # m.readshapefile('https://github.com/rtphokie/RAHFeb2020SnowEvent/tree/master/dma_2008/DMAs', 'DMAs', ax=ax, drawbounds=False)
-    DMAmap =cm.get_cmap('coolwarm')
-
     handles = {}
-
 
     # WFO shapefile from NOAA
      # https://matplotlib.org/3.3.1/tutorials/colors/colormaps.html
@@ -199,14 +206,23 @@ def draw_areas(m, ax, DMAs=None, WFOs=None):
     cmap = cm.get_cmap('rainbow') # https://matplotlib.org/3.3.1/tutorials/colors/colormaps.html
     column_of_interest='NAME'
     values_of_interest=DMAs
-    shapefile = 'data/shapefiles/dma_2008'
-    shapename = 'DMAs'
-    plot_shapes(ax, m, shapefile, shapename, column_of_interest,values_of_interest, handles,
+    dmashapedir = 'data/shapefiles/dma_2008'
+    dmashapename = 'DMAs'
+    plot_shapes(ax, m, 'data/shapefiles/dma_2008', 'DMAs', 'NAME',['RALEIGH-DURHAM'], handles,
                 linewidths=4.0, colorbylistposition=False, labelcentroid=False)
+
+    resultsdir = 'data/shapefiles/20200220NCSnowResults'
+    resultsfile = '20200220NCSnowResults'
+    categories = get_snowfall_categories(resultsdir, resultsfile)
+    m.readshapefile(f'{resultsdir}/{resultsfile}', resultsfile, ax=ax, drawbounds=False)
+    for category, bounds in categories.items():
+        plot_shapes(ax, m, resultsdir, resultsfile, 'Name', category, {},
+                    linewidths=0.0, facecolor=NWSLegend[category], alpha=1, colorbylistposition=False, labelcentroid=False)
 
 def plot_shapes(ax, m, shapefile, shapename, column_of_interest,values_of_interest, handles,
                 edgecolor='k', alpha=0.4, linewidths=0.5, fontsize=12, fontweight='bold',
-                colorbylistposition=True, labelcentroid=True, cmap='rainbow'):
+                colorbylistposition=True, facecolor=None,
+                labelcentroid=True, cmap='rainbow'):
     '''
     :param ax: axis
     :param cmap: colormap
@@ -246,13 +262,14 @@ def plot_shapes(ax, m, shapefile, shapename, column_of_interest,values_of_intere
                     points[info[column_of_interest]].append( geometry.Point(min(max(a_tuple[0], m.xmin), m.xmax), min(max(a_tuple[1], m.ymin), m.ymax)))
             collection_wfos = [Polygon(np.array(shape), True)]
             if colorbylistposition:
-                rgba = cmap((values_of_interest.index(info[column_of_interest]) + 1) / len( values_of_interest))  # pick from colormap based on position in list
+                facecolor = cmap((values_of_interest.index(info[column_of_interest]) + 1) / len( values_of_interest))  # pick from colormap based on position in list
             else:
                 # no face color
-                rgba = 'none'
+                if facecolor is None:
+                    facecolor = 'none'   # matplotlib uses keyword "none" for no color
             # ax.add_collection(PatchCollection(collection_wfos, facecolor='none', edgecolor='k', linewidths=4.0))
-            ax.add_collection(PatchCollection(collection_wfos, edgecolor=edgecolor, facecolor=rgba, alpha=alpha, linewidths=linewidths))
-            handles[info[column_of_interest]] = mpatches.Patch(color=rgba, alpha=0.4, label=info[column_of_interest])
+            ax.add_collection(PatchCollection(collection_wfos, edgecolor=edgecolor, facecolor=facecolor, alpha=alpha, linewidths=linewidths))
+            handles[info[column_of_interest]] = mpatches.Patch(color=facecolor, alpha=alpha, label=info[column_of_interest])
 
     # Label WFOs at the centroid
     if labelcentroid:
@@ -260,3 +277,39 @@ def plot_shapes(ax, m, shapefile, shapename, column_of_interest,values_of_intere
             poly = geometry.Polygon([[p.x, p.y] for p in points[shapelabel]])
             centroid = poly.centroid
             ax.text(centroid.x, centroid.y, shapelabel, fontsize=fontsize, fontweight=fontweight, ha='center', va='center', color='k')
+
+def get_snowfall_categories(resultsdir, resultsfile):
+    '''
+    :param resultsdir: directory where NWS results map is stored
+    :param resultsfile: NWS results shapefile name
+    :return: list of categories
+    '''
+    categories = {}
+    # Get snowfall range categories from NWS RAH final results map
+    ax, fig, m = _drawmap('c', drawstates=True, drawcountries=True, drawcoastlines=True)
+    m.readshapefile(f'{resultsdir}/{resultsfile}', str(resultsfile), ax=ax, drawbounds=False)
+    for info, shape in zip(m.__dict__[f"{resultsfile}_info"], m.__dict__[resultsfile]):
+        # iterate over resulting snowfall ranges from NWS RAH map
+        lowerbound, upperbound = extract_range(info['Name'])
+        categories[info['Name']] = {'lower': float(lowerbound), 'upper': float(upperbound)}
+    return categories
+
+def extract_range(s):
+    if '-' in s:
+        lowerbound, upperbound = s.split('-')
+    else:
+        lowerbound, upperbound = s, s
+    return float(lowerbound), float(upperbound)
+
+
+def plot_forecasts(ax, color, m, shapedir, shapename, snowupto):
+    m.readshapefile(f'{shapedir}/{shapename}', str(shapename), ax=ax, drawbounds=False)
+    for info, shape in zip(m.__dict__[f"{shapename}_info"], m.__dict__[shapename]):
+        # if '-' in info['Name']:
+        #     lowerbound, upperbound = info['Name'].split('-')
+        # else:
+        #     lowerbound, upperbound = info['Name'], info['Name']
+        # if upperbound == str(snowupto):
+        #     print(f"plotthis {info['Name']}")
+            plot_shapes(ax, m, shapedir, shapename, 'Name', info['Name'], {},
+                        linewidths=0.0, facecolor=color, colorbylistposition=False, labelcentroid=False)
